@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>토스 베스트 특가 모음</title>
+    <title>토스 실시간 역대급특가 모음</title>
     <meta property="og:type" content="website">
-    <meta property="og:title" content="⚡ 토스 랭킹 1~200위 실시간 특가 모음">
-    <meta property="og:description" content="베스트 200위 실시간 분석! 고할인율 & 최저가 가성비 엄선">
+    <meta property="og:title" content="⚡ 토스 실시간 역대급특가 모음">
+    <meta property="og:description" content="베스트 200위 실시간 분석! 공식 역대급특가 상품 전체 보기">
     <meta property="og:image" content="https://static.toss.im/icons/png/4x/icon-toss-logo.png">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif; }
@@ -18,13 +18,11 @@
         .tab-btn { flex: 1; max-width: 180px; padding: 9px 0; font-size: 14px; font-weight: 600; border: none; background: none; cursor: pointer; color: #8b95a1; border-bottom: 2px solid transparent; }
         .tab-btn.active { color: #3182f6; border-bottom: 2px solid #3182f6; }
         .container { max-width: 480px; margin: 0 auto; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
-        .tab-content { display: none; flex-direction: column; gap: 10px; }
-        .tab-content.active { display: flex; }
         .card { display: flex; background: #fff; border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
         .thumb-wrap { width: 110px; height: 110px; position: relative; flex-shrink: 0; background: #f9fafb; }
         .thumb-wrap img { width: 100%; height: 100%; object-fit: cover; }
         .badge { position: absolute; top: 6px; left: 6px; background: #f04452; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 5px; border-radius: 4px; }
-        .info { padding: 12px; display: flex; flex-direction: column; justify-content: center; gap: 6px; flex-grow: 1; }
+        .info { padding: 12px; display: flex; flex-direction: column; justify-content: center; gap: 6px; flex-grow: 1; min-width: 0; }
         .title { font-size: 13px; font-weight: 600; line-height: 1.35; color: #333d4b; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .price-row { display: flex; align-items: baseline; gap: 6px; }
         .original-price { font-size: 11px; color: #8b95a1; text-decoration: line-through; }
@@ -33,584 +31,63 @@
 </head>
 <body>
     <header>
-        <h1>⚡ 토스 랭킹 1~200위 분석 특가</h1>
+        <h1>⚡ 실시간 토스 역대급특가 (30개)</h1>
         <div class="notice-badge">이 포스팅은 토스 쉐어링크 활동의 일환으로 수수료를 지급받습니다.</div>
         <div class="tab-bar">
-            <button class="tab-btn active" onclick="switchTab('discount', this)">🔥 고할인율순</button>
-            <button class="tab-btn" onclick="switchTab('price', this)">💰 최저가순</button>
+            <button class="tab-btn active" id="btn-discount" onclick="sortAndRender('discount')">🔥 고할인율순</button>
+            <button class="tab-btn" id="btn-price" onclick="sortAndRender('price')">💰 최저가순</button>
         </div>
     </header>
-    <div class="container">
-        <div id="discount-tab" class="tab-content active">
-        <a href="https://toss.im/_m/H2ZPEHd3" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/Y2EzY2Qy/Ynl6aVNaS2VjMmMxZTgyWDI4bXVRbnA4azVZdFBJak1pbmhMUXhHODNIRT0.png" alt="자이글 스텐요리돔, 35cm, 1개" loading="lazy">
-                <span class="badge">🔥 91% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">자이글 스텐요리돔, 35cm, 1개</div>
-                <div class="price-row">
-                    <span class="original-price">59,000원</span>
-                    <span class="sale-price">4,900원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/RtAAeec3" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-01-14/bfb30b83-e480-4039-9379-c84e8fab3835.png" alt="2in1 에어슬림 무선청소기 YQ-669, 화이트, 1개" loading="lazy">
-                <span class="badge">🔥 91% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">2in1 에어슬림 무선청소기 YQ-669, 화이트, 1개</div>
-                <div class="price-row">
-                    <span class="original-price">299,000원</span>
-                    <span class="sale-price">24,680원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/pPs866Q4" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-08-14/0a20959e-105f-4864-acd2-ad8bc7bde2fc.jpeg" alt="헬로바이오 올리브오일 100% 엑스트라버진 식물성 캡슐, 30캡슐, 3박스" loading="lazy">
-                <span class="badge">🔥 89% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">헬로바이오 올리브오일 100% 엑스트라버진 식물성 캡슐, 30캡슐, 3박스</div>
-                <div class="price-row">
-                    <span class="original-price">59,900원</span>
-                    <span class="sale-price">6,500원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/zg9OsRK4" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-08-10/1e4fe51d-5eff-40b9-82e5-057e3a8529d9.png" alt="수뜰리에 소프트 섬유유연제 비누향, 2.5L, 4개" loading="lazy">
-                <span class="badge">🔥 88% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">수뜰리에 소프트 섬유유연제 비누향, 2.5L, 4개</div>
-                <div class="price-row">
-                    <span class="original-price">39,600원</span>
-                    <span class="sale-price">4,590원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/tQNWL0jc" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2025-05-30/8051fbfa-7068-4023-940a-f6937917d578.png" alt="레이데이 마데카 재생크림 1+1+1, 40ml, 총 3개" loading="lazy">
-                <span class="badge">🔥 86% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">레이데이 마데카 재생크림 1+1+1, 40ml, 총 3개</div>
-                <div class="price-row">
-                    <span class="original-price">75,000원</span>
-                    <span class="sale-price">9,880원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/3MWVc7Gi" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/v2/NTg5ZTkz/QU9CMmREazduT2NuOGJreXZBOFdoZGx3SVkxVVErcDRnYTVVQWJ2OFE3OFE.png" alt="스페시핏 곰팡이 제거제 플러스, 500ml, 2개" loading="lazy">
-                <span class="badge">🔥 83% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">스페시핏 곰팡이 제거제 플러스, 500ml, 2개</div>
-                <div class="price-row">
-                    <span class="original-price">33,800원</span>
-                    <span class="sale-price">5,420원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/5x2yCJ2l" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/ZTZjNTE5/VExiU2FTeVV0U2tTa3BWa1ZHbHNscGxwSnBhaksxclNqV3l0UzFLVVMwcz0.png" alt="테팔 셰프드 프랑스 궁중팬, 28cm, 1개" loading="lazy">
-                <span class="badge">🔥 83% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">테팔 셰프드 프랑스 궁중팬, 28cm, 1개</div>
-                <div class="price-row">
-                    <span class="original-price">129,000원</span>
-                    <span class="sale-price">21,400원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/JTPkF3m8" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-08-11/9eddd016-e47d-493f-b0b7-f52539328ac4.jpeg" alt="익스트림 잉카 페루산 마카 800+, 180정, 1박스" loading="lazy">
-                <span class="badge">🔥 83% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">익스트림 잉카 페루산 마카 800+, 180정, 1박스</div>
-                <div class="price-row">
-                    <span class="original-price">60,000원</span>
-                    <span class="sale-price">9,900원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/1qMOmwFo" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-08-05/d1036994-fd95-42f5-82be-741dff71ead8.jpeg" alt="프로프룻 샤인머스켓, 특품, 2kg, 1박스" loading="lazy">
-                <span class="badge">🔥 82% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">프로프룻 샤인머스켓, 특품, 2kg, 1박스</div>
-                <div class="price-row">
-                    <span class="original-price">69,900원</span>
-                    <span class="sale-price">11,900원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/tbaHzPws" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/YjJkY2Q1/SHR2MlMzS2p6ZG5kOExtOS9HWjVtbzVTZWhjL1Q1Qmx3N0hLeEd5RzBUST0.png" alt="성주 꿀참외, 못난이, 랜덤혼합, 10kg, 1박스" loading="lazy">
-                <span class="badge">🔥 82% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">성주 꿀참외, 못난이, 랜덤혼합, 10kg, 1박스</div>
-                <div class="price-row">
-                    <span class="original-price">82,900원</span>
-                    <span class="sale-price">14,500원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/9PLDfQP9" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-07-10/9f52160b-fd2a-492f-8b5e-66abc4d77f94.jpeg" alt="지퍼 멀티 크로스백, 블랙, 1개" loading="lazy">
-                <span class="badge">🔥 81% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">지퍼 멀티 크로스백, 블랙, 1개</div>
-                <div class="price-row">
-                    <span class="original-price">32,900원</span>
-                    <span class="sale-price">6,230원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/FUprQu2v" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-08-21/0edd85ca-5bac-4000-82b8-afc4b3102faf.jpeg" alt="프로프룻 햇 홍로사과, 3kg, 1박스" loading="lazy">
-                <span class="badge">🔥 80% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">프로프룻 햇 홍로사과, 3kg, 1박스</div>
-                <div class="price-row">
-                    <span class="original-price">59,900원</span>
-                    <span class="sale-price">11,900원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/TaK8Ymew" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/NTJmYmM1/ZW1Xemk1NUN4T1NVTHRwczA5THZoU3hzWVU1VGJqYWpwN1hqbEJrREFTWT0.png" alt="백호 알배기 간장 암꽃게장, 2kg, 3통" loading="lazy">
-                <span class="badge">🔥 80% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">백호 알배기 간장 암꽃게장, 2kg, 3통</div>
-                <div class="price-row">
-                    <span class="original-price">150,000원</span>
-                    <span class="sale-price">29,900원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/hOJlX2vy" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/MmFkYmY2/QU8yQm14c2htK003N0dTY0RNWU95ek44b09KQ2dZVng1bytSZjQ0eGVveWI.png" alt="대용량 갈매기살, 1kg, 1팩" loading="lazy">
-                <span class="badge">🔥 80% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">대용량 갈매기살, 1kg, 1팩</div>
-                <div class="price-row">
-                    <span class="original-price">53,500원</span>
-                    <span class="sale-price">13,400원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/Ve3ehBpB" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/YTdhZGIx/QU9Yd3N3RXhqMDVUaWg4emhjUjRJSVJScTUxNnFoUUNOZi91QUlRaTQ5OTY.png" alt="발이 편한 카바 밴딩 중목 양말, 화이트, 10켤레" loading="lazy">
-                <span class="badge">🔥 79% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">발이 편한 카바 밴딩 중목 양말, 화이트, 10켤레</div>
-                <div class="price-row">
-                    <span class="original-price">20,000원</span>
-                    <span class="sale-price">4,200원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/L81qpFgc" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/YTBlYzJh/ZHVTZHBneldPamJ6TStYTHpNNU1wbk96cXhDQ1RKWnRzc255MmVwVVRiWT0.png" alt="동구밭 샴푸앤트리트먼트바 세트, 400g, 1세트" loading="lazy">
-                <span class="badge">🔥 79% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">동구밭 샴푸앤트리트먼트바 세트, 400g, 1세트</div>
-                <div class="price-row">
-                    <span class="original-price">58,000원</span>
-                    <span class="sale-price">11,900원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/378z0NwC" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-08-13/1455fba1-3014-4f65-8735-3aecaab475f1.png" alt="AHC 시즌13 프리미어 앰플 아이크림 라인 타이트닝, 12ml, 6개" loading="lazy">
-                <span class="badge">🔥 79% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">AHC 시즌13 프리미어 앰플 아이크림 라인 타이트닝, 12ml, 6개</div>
-                <div class="price-row">
-                    <span class="original-price">72,000원</span>
-                    <span class="sale-price">14,900원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/9c7mabM5" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-01-27/cdf9ce44-e161-4544-89d3-badba0eb1707.png" alt="리셀 샤워기 100, 1개 + 샤워기 필터, 3개" loading="lazy">
-                <span class="badge">🔥 79% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">리셀 샤워기 100, 1개 + 샤워기 필터, 3개</div>
-                <div class="price-row">
-                    <span class="original-price">21,900원</span>
-                    <span class="sale-price">4,410원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/J5W30Dse" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-08-21/0edd85ca-5bac-4000-82b8-afc4b3102faf.jpeg" alt="프로프룻 햇 홍로사과, 5kg, 1박스" loading="lazy">
-                <span class="badge">🔥 78% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">프로프룻 햇 홍로사과, 5kg, 1박스</div>
-                <div class="price-row">
-                    <span class="original-price">79,900원</span>
-                    <span class="sale-price">16,900원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/vdOauW5x" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/ml-vision/smart-crop/596cc6ef-9b64-4557-b5bb-8cb94ebc19d0.jpg" alt="폰박스 무선 핸디 침구 청소기, BS-801, 퍼플, 1개" loading="lazy">
-                <span class="badge">🔥 78% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">폰박스 무선 핸디 침구 청소기, BS-801, 퍼플, 1개</div>
-                <div class="price-row">
-                    <span class="original-price">90,000원</span>
-                    <span class="sale-price">19,790원</span>
-                </div>
-            </div>
-        </a>
-        </div>
-        <div id="price-tab" class="tab-content">
-        <a href="https://toss.im/_m/Xa5JGXID" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2025-07-17/9fc6341e-f3d8-4171-bafe-4c0e6a1436a8.jpeg" alt="옆트임 요술바늘, 12개입, 1세트" loading="lazy">
-                <span class="badge">🔥 68% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">옆트임 요술바늘, 12개입, 1세트</div>
-                <div class="price-row">
-                    <span class="original-price">7,990원</span>
-                    <span class="sale-price">2,530원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/tPmqqo31" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/OTRlYmVi/QUtyR1VqSnR1VmlGTWd6bTB0MWp0NmxqbVo3MlR5WWttdHJ4TGFiVlhQc3Q.png" alt="스프렉스 핸디형 욕실 물기제거 밀대, BR-E1000, 2개" loading="lazy">
-                <span class="badge">🔥 63% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">스프렉스 핸디형 욕실 물기제거 밀대, BR-E1000, 2개</div>
-                <div class="price-row">
-                    <span class="original-price">7,900원</span>
-                    <span class="sale-price">2,880원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/79BhI3z3" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/v2/YjU4N2Fl/Q000MlpRY2I3dkN0SWxMNGJRMldqOXJhSlMycVZzaXBGMXFCOWNDdC9RST0.png" alt="스프렉스 무점착 오염방지 투명 시트지, 5M, 1개" loading="lazy">
-                <span class="badge">🔥 50% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">스프렉스 무점착 오염방지 투명 시트지, 5M, 1개</div>
-                <div class="price-row">
-                    <span class="original-price">7,900원</span>
-                    <span class="sale-price">3,900원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/v0j9Qks4" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/NTBkNTA1/QUxEUmxodG5aR25talp5Mk9kWnlaUEZuampubVhqbVhHN0RSWnc1SlpMamg.png" alt="맘스럽 베이킹소다, 파우치, 5kg, 1개" loading="lazy">
-                <span class="badge">🔥 71% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">맘스럽 베이킹소다, 파우치, 5kg, 1개</div>
-                <div class="price-row">
-                    <span class="original-price">13,900원</span>
-                    <span class="sale-price">3,990원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/dDaKiTzi" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/3ff/live/product/834251053/3ffd2f2a-0e54-4d6f-92ba-79e259e224c4.jpg" alt="맘스럽 리얼 헹굼식초, 4L, 2개" loading="lazy">
-                <span class="badge">🔥 74% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">맘스럽 리얼 헹굼식초, 4L, 2개</div>
-                <div class="price-row">
-                    <span class="original-price">15,900원</span>
-                    <span class="sale-price">4,130원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/Ve3ehBpB" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/YTdhZGIx/QU9Yd3N3RXhqMDVUaWg4emhjUjRJSVJScTUxNnFoUUNOZi91QUlRaTQ5OTY.png" alt="발이 편한 카바 밴딩 중목 양말, 화이트, 10켤레" loading="lazy">
-                <span class="badge">🔥 79% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">발이 편한 카바 밴딩 중목 양말, 화이트, 10켤레</div>
-                <div class="price-row">
-                    <span class="original-price">20,000원</span>
-                    <span class="sale-price">4,200원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/9c7mabM5" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-01-27/cdf9ce44-e161-4544-89d3-badba0eb1707.png" alt="리셀 샤워기 100, 1개 + 샤워기 필터, 3개" loading="lazy">
-                <span class="badge">🔥 79% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">리셀 샤워기 100, 1개 + 샤워기 필터, 3개</div>
-                <div class="price-row">
-                    <span class="original-price">21,900원</span>
-                    <span class="sale-price">4,410원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/90Ht8OPk" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/v2/OWZiMGRi/SFQ2V2JPR1RPelF5SGsyYVBIRTVQSjhZem5IeHpISFpXU3l6R2NOeHptWT0.png" alt="건담 모듬 버섯, 800g, 1개" loading="lazy">
-                <span class="badge">🔥 54% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">건담 모듬 버섯, 800g, 1개</div>
-                <div class="price-row">
-                    <span class="original-price">9,900원</span>
-                    <span class="sale-price">4,480원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/1pZkC8gm" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/product/8672915/30315309-da24-4fac-bffd-a7de0b110922.jpeg" alt="넛츠그린 제로스파클링, 자몽블랙티, 340ml, 6개" loading="lazy">
-                <span class="badge">🔥 62% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">넛츠그린 제로스파클링, 자몽블랙티, 340ml, 6개</div>
-                <div class="price-row">
-                    <span class="original-price">12,000원</span>
-                    <span class="sale-price">4,500원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/zg9OsRK4" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-08-10/1e4fe51d-5eff-40b9-82e5-057e3a8529d9.png" alt="수뜰리에 소프트 섬유유연제 비누향, 2.5L, 4개" loading="lazy">
-                <span class="badge">🔥 88% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">수뜰리에 소프트 섬유유연제 비누향, 2.5L, 4개</div>
-                <div class="price-row">
-                    <span class="original-price">39,600원</span>
-                    <span class="sale-price">4,590원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/H2ZPEHd3" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/Y2EzY2Qy/Ynl6aVNaS2VjMmMxZTgyWDI4bXVRbnA4azVZdFBJak1pbmhMUXhHODNIRT0.png" alt="자이글 스텐요리돔, 35cm, 1개" loading="lazy">
-                <span class="badge">🔥 91% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">자이글 스텐요리돔, 35cm, 1개</div>
-                <div class="price-row">
-                    <span class="original-price">59,000원</span>
-                    <span class="sale-price">4,900원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/5CvPMu77" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/MjU5ODY5/QUpwVG5PeTJjNXh4UTA1cnoydUxPOHRMUzBuTHRMVDJ0TFkwOXp6MnRMWWs.png" alt="크롱 립큐어, 딸기향, 2.5g, 3개" loading="lazy">
-                <span class="badge">🔥 67% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">크롱 립큐어, 딸기향, 2.5g, 3개</div>
-                <div class="price-row">
-                    <span class="original-price">15,000원</span>
-                    <span class="sale-price">4,900원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/xa9JsMOt" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/MWUxYTU0/QUxTbXp3NTArZHpoNGVPZlBUU3o1NW5TN1RqMnM5elljZU9ZNmNGbzREY08.png" alt="꿀이구마 호박 찹쌀 약과, 30g, 30개" loading="lazy">
-                <span class="badge">🔥 64% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">꿀이구마 호박 찹쌀 약과, 30g, 30개</div>
-                <div class="price-row">
-                    <span class="original-price">13,900원</span>
-                    <span class="sale-price">4,990원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/1tJUSsr9" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/YjY0NWNi/ZS9oQTlrTDRTTDBtZ0ZpcFJJU1NEMHlza2c1b3JkS0VtaVFNSGJ0SEtlZz0.png" alt="베라 4ZERO 뽑아쓰는 미용티슈, 250매, 6팩" loading="lazy">
-                <span class="badge">🔥 75% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">베라 4ZERO 뽑아쓰는 미용티슈, 250매, 6팩</div>
-                <div class="price-row">
-                    <span class="original-price">20,900원</span>
-                    <span class="sale-price">5,110원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/Ve4Njyry" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-04-30/346efa4b-0a91-4c9b-836e-49337dfc4eee.jpeg" alt="클리어 미용티슈, 2겹, 300매, 6개" loading="lazy">
-                <span class="badge">🔥 64% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">클리어 미용티슈, 2겹, 300매, 6개</div>
-                <div class="price-row">
-                    <span class="original-price">14,900원</span>
-                    <span class="sale-price">5,290원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/3MWVc7Gi" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/v2/NTg5ZTkz/QU9CMmREazduT2NuOGJreXZBOFdoZGx3SVkxVVErcDRnYTVVQWJ2OFE3OFE.png" alt="스페시핏 곰팡이 제거제 플러스, 500ml, 2개" loading="lazy">
-                <span class="badge">🔥 83% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">스페시핏 곰팡이 제거제 플러스, 500ml, 2개</div>
-                <div class="price-row">
-                    <span class="original-price">33,800원</span>
-                    <span class="sale-price">5,420원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/PplNdTzD" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-06-09/3d168097-a6da-4f99-9e12-5b8d3121e04e.jpeg" alt="베베앙 시그니처 물티슈 캡형, 100매, 10팩" loading="lazy">
-                <span class="badge">🔥 77% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">베베앙 시그니처 물티슈 캡형, 100매, 10팩</div>
-                <div class="price-row">
-                    <span class="original-price">23,800원</span>
-                    <span class="sale-price">5,460원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/XOrKzwRf" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/YmI1NGJk/QUpobU9jOXRzYlNac25uSVpEbW03Wm1lVTF0TXkweFlNekR6VXNubkhLY00.png" alt="제이킨 피부괄사 3종, 전신괄사 + 문어괄사 + 하트괄사, 1세트" loading="lazy">
-                <span class="badge">🔥 62% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">제이킨 피부괄사 3종, 전신괄사 + 문어괄사 + 하트괄사, 1세트</div>
-                <div class="price-row">
-                    <span class="original-price">14,800원</span>
-                    <span class="sale-price">5,600원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/jIdGspn9" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/taca/ai/Mzk3YWJi/TWpUTWtRTloxc1NkTnhBcWRPbFB1ZFZWdDN4VWRGS2g1Tm1GbDNOMmFtZz0.png" alt="멀티 방수 폰가방, 블랙, 1개" loading="lazy">
-                <span class="badge">🔥 70% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">멀티 방수 폰가방, 블랙, 1개</div>
-                <div class="price-row">
-                    <span class="original-price">19,000원</span>
-                    <span class="sale-price">5,600원</span>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://toss.im/_m/fUyYIvHD" target="_blank" class="card">
-            <div class="thumb-wrap">
-                <img src="https://shopping.toss.im/live/temp/2026-06-16/b1e9c145-5424-4198-9449-4beace9264e8.jpeg" alt="파이토메이드 고칼슘&비타민D 두유 21곡 미숫가루, 190ml, 24개" loading="lazy">
-                <span class="badge">🔥 63% OFF</span>
-            </div>
-            <div class="info">
-                <div class="title">파이토메이드 고칼슘&비타민D 두유 21곡 미숫가루, 190ml, 24개</div>
-                <div class="price-row">
-                    <span class="original-price">15,800원</span>
-                    <span class="sale-price">5,700원</span>
-                </div>
-            </div>
-        </a>
-        </div>
-    </div>
+    <div class="container" id="product-container"></div>
+
     <script>
-        function switchTab(type, el) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            el.classList.add('active');
-            document.getElementById(type + '-tab').classList.add('active');
+        const items = [{"rank": 69, "tacaItemId": 24805693, "displayName": "자이글 스텐요리돔, 35cm, 1개", "thumbnailUrl": "https://shopping.toss.im/live/taca/ai/Y2EzY2Qy/Ynl6aVNaS2VjMmMxZTgyWDI4bXVRbnA4azVZdFBJak1pbmhMUXhHODNIRT0.png", "productUrl": "https://toss.shopping/t/24805693", "displayPrice": 4900, "originalPrice": 59000, "discountRate": 91, "isSoldOut": false, "reviewScore": 4.4, "reviewCount": 694, "categoryIds": [29967, 33355, 33409, 33437], "affUrl": "https://toss.im/_m/H2ZPEHd3"}, {"rank": 81, "tacaItemId": 437812827, "displayName": "2in1 에어슬림 무선청소기 YQ-669, 화이트, 1개", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-01-14/bfb30b83-e480-4039-9379-c84e8fab3835.png", "productUrl": "https://toss.shopping/t/649168217", "displayPrice": 24680, "originalPrice": 299000, "discountRate": 91, "isSoldOut": false, "reviewScore": 3.4, "reviewCount": 4209, "categoryIds": [16443, 17861, 18091, 18197, 18211], "affUrl": "https://toss.im/_m/RtAAeec3"}, {"rank": 19, "tacaItemId": 1918349725, "displayName": "헬로바이오 올리브오일 100% 엑스트라버진 식물성 캡슐, 30캡슐, 3박스", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-08-14/0a20959e-105f-4864-acd2-ad8bc7bde2fc.jpeg", "productUrl": "https://toss.shopping/t/1929156813", "displayPrice": 6500, "originalPrice": 59900, "discountRate": 89, "isSoldOut": false, "reviewScore": 4.7, "reviewCount": 36, "categoryIds": [50995, 59787, 59789, 59791, 59807], "affUrl": "https://toss.im/_m/pPs866Q4"}, {"rank": 14, "tacaItemId": 2559049861, "displayName": "수뜰리에 소프트 섬유유연제 비누향, 2.5L, 4개", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-08-10/1e4fe51d-5eff-40b9-82e5-057e3a8529d9.png", "productUrl": "https://toss.shopping/t/2571175119", "displayPrice": 4590, "originalPrice": 39600, "discountRate": 88, "isSoldOut": false, "reviewScore": 4.6, "reviewCount": 6714, "categoryIds": [22343, 23391, 23393, 23397], "affUrl": "https://toss.im/_m/zg9OsRK4"}, {"rank": 140, "tacaItemId": 109827819, "displayName": "레이데이 마데카 재생크림 1+1+1, 40ml, 총 3개", "thumbnailUrl": "https://shopping.toss.im/live/temp/2025-05-30/8051fbfa-7068-4023-940a-f6937917d578.png", "productUrl": "https://toss.shopping/t/1908338943", "displayPrice": 9880, "originalPrice": 75000, "discountRate": 86, "isSoldOut": false, "reviewScore": 4.4, "reviewCount": 469, "categoryIds": [50997, 21945, 22047, 22057], "affUrl": "https://toss.im/_m/tQNWL0jc"}, {"rank": 23, "tacaItemId": 281407267, "displayName": "스페시핏 곰팡이 제거제 플러스, 500ml, 2개", "thumbnailUrl": "https://shopping.toss.im/live/taca/ai/v2/NTg5ZTkz/QU9CMmREazduT2NuOGJreXZBOFdoZGx3SVkxVVErcDRnYTVVQWJ2OFE3OFE.png", "productUrl": "https://toss.shopping/t/159694487", "displayPrice": 5420, "originalPrice": 33800, "discountRate": 83, "isSoldOut": false, "reviewScore": 4.6, "reviewCount": 2709, "categoryIds": [22343, 23391, 23477, 23479], "affUrl": "https://toss.im/_m/3MWVc7Gi"}, {"rank": 84, "tacaItemId": 165739913, "displayName": "테팔 셰프드 프랑스 궁중팬, 28cm, 1개", "thumbnailUrl": "https://shopping.toss.im/live/taca/ai/ZTZjNTE5/VExiU2FTeVV0U2tTa3BWa1ZHbHNscGxwSnBhaksxclNqV3l0UzFLVVMwcz0.png", "productUrl": "https://toss.shopping/t/153645637", "displayPrice": 21400, "originalPrice": 129000, "discountRate": 83, "isSoldOut": false, "reviewScore": 4.5, "reviewCount": 1314, "categoryIds": [29967, 33355, 33511, 33525], "affUrl": "https://toss.im/_m/5x2yCJ2l"}, {"rank": 148, "tacaItemId": 2602220529, "displayName": "익스트림 잉카 페루산 마카 800+, 180정, 1박스", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-08-11/9eddd016-e47d-493f-b0b7-f52539328ac4.jpeg", "productUrl": "https://toss.shopping/t/2614348671", "displayPrice": 9900, "originalPrice": 60000, "discountRate": 83, "isSoldOut": false, "reviewScore": 4.6, "reviewCount": 885, "categoryIds": [50995, 59787, 59789, 59791, 59821], "affUrl": "https://toss.im/_m/JTPkF3m8"}, {"rank": 31, "tacaItemId": 2578376693, "displayName": "프로프룻 샤인머스켓, 특품, 2kg, 1박스", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-08-05/d1036994-fd95-42f5-82be-741dff71ead8.jpeg", "productUrl": "https://toss.shopping/t/2590502625", "displayPrice": 11900, "originalPrice": 69900, "discountRate": 82, "isSoldOut": false, "reviewScore": 4.3, "reviewCount": 2324, "categoryIds": [50995, 27917, 28001, 28003, 28095], "affUrl": "https://toss.im/_m/1qMOmwFo"}, {"rank": 100, "tacaItemId": 846666663, "displayName": "성주 꿀참외, 못난이, 랜덤혼합, 10kg, 1박스", "thumbnailUrl": "https://shopping.toss.im/live/taca/ai/YjJkY2Q1/SHR2MlMzS2p6ZG5kOExtOS9HWjVtbzVTZWhjL1Q1Qmx3N0hLeEd5RzBUST0.png", "productUrl": "https://toss.shopping/t/857399127", "displayPrice": 14500, "originalPrice": 82900, "discountRate": 82, "isSoldOut": false, "reviewScore": 4.5, "reviewCount": 4829, "categoryIds": [50995, 27917, 28001, 28003, 28081], "affUrl": "https://toss.im/_m/tbaHzPws"}, {"rank": 154, "tacaItemId": 2460861557, "displayName": "지퍼 멀티 크로스백, 블랙, 1개", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-07-10/9f52160b-fd2a-492f-8b5e-66abc4d77f94.jpeg", "productUrl": "https://toss.shopping/t/80683821", "displayPrice": 6230, "originalPrice": 32900, "discountRate": 81, "isSoldOut": false, "reviewScore": 4.3, "reviewCount": 2406, "categoryIds": [34635, 35647, 36373, 36375, 36401], "affUrl": "https://toss.im/_m/9PLDfQP9"}, {"rank": 53, "tacaItemId": 2626125753, "displayName": "프로프룻 햇 홍로사과, 3kg, 1박스", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-08-21/0edd85ca-5bac-4000-82b8-afc4b3102faf.jpeg", "productUrl": "https://toss.shopping/t/2638257893", "displayPrice": 11900, "originalPrice": 59900, "discountRate": 80, "isSoldOut": false, "reviewScore": 4.3, "reviewCount": 381, "categoryIds": [50995, 27917, 28001, 28003, 28053], "affUrl": "https://toss.im/_m/FUprQu2v"}, {"rank": 55, "tacaItemId": 340543079, "displayName": "백호 알배기 간장 암꽃게장, 2kg, 3통", "thumbnailUrl": "https://shopping.toss.im/live/taca/ai/NTJmYmM1/ZW1Xemk1NUN4T1NVTHRwczA5THZoU3hzWVU1VGJqYWpwN1hqbEJrREFTWT0.png", "productUrl": "https://toss.shopping/t/351205423", "displayPrice": 29900, "originalPrice": 150000, "discountRate": 80, "isSoldOut": false, "reviewScore": 4.0, "reviewCount": 3148, "categoryIds": [50995, 27121, 27133, 27255, 27257], "affUrl": "https://toss.im/_m/TaK8Ymew"}, {"rank": 135, "tacaItemId": 349007179, "displayName": "대용량 갈매기살, 1kg, 1팩", "thumbnailUrl": "https://shopping.toss.im/live/taca/ai/MmFkYmY2/QU8yQm14c2htK003N0dTY0RNWU95ek44b09KQ2dZVng1bytSZjQ0eGVveWI.png", "productUrl": "https://toss.shopping/t/359676791", "displayPrice": 13400, "originalPrice": 53500, "discountRate": 80, "isSoldOut": false, "reviewScore": 4.0, "reviewCount": 1084, "categoryIds": [50995, 27917, 28689, 28783, 28785], "affUrl": "https://toss.im/_m/hOJlX2vy"}, {"rank": 27, "tacaItemId": 2264708383, "displayName": "발이 편한 카바 밴딩 중목 양말, 화이트, 10켤레", "thumbnailUrl": "https://shopping.toss.im/live/taca/ai/YTdhZGIx/QU9Yd3N3RXhqMDVUaWg4emhjUjRJSVJScTUxNnFoUUNOZi91QUlRaTQ5OTY.png", "productUrl": "https://toss.shopping/t/2275531349", "displayPrice": 4200, "originalPrice": 20000, "discountRate": 79, "isSoldOut": false, "reviewScore": 4.5, "reviewCount": 11206, "categoryIds": [34635, 37829, 37861, 37963, 37979], "affUrl": "https://toss.im/_m/Ve3ehBpB"}, {"rank": 61, "tacaItemId": 2368859981, "displayName": "동구밭 샴푸앤트리트먼트바 세트, 400g, 1세트", "thumbnailUrl": "https://shopping.toss.im/live/taca/ai/YTBlYzJh/ZHVTZHBneldPamJ6TStYTHpNNU1wbk96cXhDQ1RKWnRzc255MmVwVVRiWT0.png", "productUrl": "https://toss.shopping/t/2265353843", "displayPrice": 11900, "originalPrice": 58000, "discountRate": 79, "isSoldOut": false, "reviewScore": 4.7, "reviewCount": 1229, "categoryIds": [50997, 22203, 22227, 22241], "affUrl": "https://toss.im/_m/L81qpFgc"}, {"rank": 85, "tacaItemId": 2515100285, "displayName": "AHC 시즌13 프리미어 앰플 아이크림 라인 타이트닝, 12ml, 6개", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-08-13/1455fba1-3014-4f65-8735-3aecaab475f1.png", "productUrl": "https://toss.shopping/t/2527220819", "displayPrice": 14900, "originalPrice": 72000, "discountRate": 79, "isSoldOut": false, "reviewScore": 4.3, "reviewCount": 472, "categoryIds": [50997, 21945, 22047, 22057], "affUrl": "https://toss.im/_m/378z0NwC"}, {"rank": 116, "tacaItemId": 423191503, "displayName": "리셀 샤워기 100, 1개 + 샤워기 필터, 3개", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-01-27/cdf9ce44-e161-4544-89d3-badba0eb1707.png", "productUrl": "https://toss.shopping/t/433867447", "displayPrice": 4410, "originalPrice": 21900, "discountRate": 79, "isSoldOut": false, "reviewScore": 4.5, "reviewCount": 10074, "categoryIds": [22343, 23759, 23781, 23801], "affUrl": "https://toss.im/_m/9c7mabM5"}, {"rank": 21, "tacaItemId": 2626125755, "displayName": "프로프룻 햇 홍로사과, 5kg, 1박스", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-08-21/0edd85ca-5bac-4000-82b8-afc4b3102faf.jpeg", "productUrl": "https://toss.shopping/t/2638257895", "displayPrice": 16900, "originalPrice": 79900, "discountRate": 78, "isSoldOut": false, "reviewScore": 4.2, "reviewCount": 1680, "categoryIds": [50995, 27917, 28001, 28003, 28053], "affUrl": "https://toss.im/_m/J5W30Dse"}, {"rank": 139, "tacaItemId": 2281613317, "displayName": "폰박스 무선 핸디 침구 청소기, BS-801, 퍼플, 1개", "thumbnailUrl": "https://shopping.toss.im/ml-vision/smart-crop/596cc6ef-9b64-4557-b5bb-8cb94ebc19d0.jpg", "productUrl": "https://toss.shopping/t/2293690577", "displayPrice": 19790, "originalPrice": 90000, "discountRate": 78, "isSoldOut": false, "reviewScore": 4.4, "reviewCount": 415, "categoryIds": [16443, 17861, 18091, 18187, 18193], "affUrl": "https://toss.im/_m/vdOauW5x"}, {"rank": 7, "tacaItemId": 148067535, "displayName": "베베앙 시그니처 물티슈 캡형, 100매, 10팩", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-06-09/3d168097-a6da-4f99-9e12-5b8d3121e04e.jpeg", "productUrl": "https://toss.shopping/t/83588153", "displayPrice": 5460, "originalPrice": 23800, "discountRate": 77, "isSoldOut": false, "reviewScore": 4.8, "reviewCount": 13310, "categoryIds": [30343, 33635, 33669], "affUrl": "https://toss.im/_m/PplNdTzD"}, {"rank": 90, "tacaItemId": 261102785, "displayName": "홍게, 8kg, 1박스", "thumbnailUrl": "https://shopping.toss.im/live/taca/ai/ODk2Yjhm/Vnl3MkYrY05OdVJlTzlhMVZ1Tm1NQklqR3VaSTVtcE9ZNnhyVHEwOHRMUT0.png", "productUrl": "https://toss.shopping/t/138920023", "displayPrice": 29490, "originalPrice": 129000, "discountRate": 77, "isSoldOut": false, "reviewScore": 3.4, "reviewCount": 2784, "categoryIds": [50995, 27917, 28127, 28231, 28245], "affUrl": "https://toss.im/_m/RMOTuo4b"}, {"rank": 15, "tacaItemId": 1622271965, "displayName": "오즈랜드 초코와플, 21.4g, 20봉, 2박스", "thumbnailUrl": "https://shopping.toss.im/live/taca/ai/MjYxZDI1/QUsxNFVWUFJlRXRyUjVrMlVudFppNW9YK2xUQzNOcnJwYUpVSkJaVVJvcHQ.png", "productUrl": "https://toss.shopping/t/1633057903", "displayPrice": 8500, "originalPrice": 35800, "discountRate": 76, "isSoldOut": false, "reviewScore": 4.7, "reviewCount": 209, "categoryIds": [50995, 27645, 27765, 27777, 27787], "affUrl": "https://toss.im/_m/fwJyi81B"}, {"rank": 97, "tacaItemId": 2635680659, "displayName": "나주배, 특품, 3kg, 6-9과, 1박스", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-08-25/f4ceae7a-3aea-4b3f-bbd6-c6f534652032.png", "productUrl": "https://toss.shopping/t/2647817773", "displayPrice": 17900, "originalPrice": 76800, "discountRate": 76, "isSoldOut": false, "reviewScore": 3.6, "reviewCount": 22, "categoryIds": [50995, 27917, 28001, 28003, 28045], "affUrl": "https://toss.im/_m/DIqUtsVb"}, {"rank": 133, "tacaItemId": 2366483323, "displayName": "아오리사과 썸머킹사과, 4kg, 1박스", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-06-30/20172f46-ba35-4334-8fe0-af51bebdd9bd.png", "productUrl": "https://toss.shopping/t/2378563577", "displayPrice": 12900, "originalPrice": 55000, "discountRate": 76, "isSoldOut": false, "reviewScore": 4.1, "reviewCount": 95, "categoryIds": [50995, 27917, 28001, 28003, 28053], "affUrl": "https://toss.im/_m/zQsAjgzd"}, {"rank": 17, "tacaItemId": 1487103361, "displayName": "베라 4ZERO 뽑아쓰는 미용티슈, 250매, 6팩", "thumbnailUrl": "https://shopping.toss.im/live/taca/ai/YjY0NWNi/ZS9oQTlrTDRTTDBtZ0ZpcFJJU1NEMHlza2c1b3JkS0VtaVFNSGJ0SEtlZz0.png", "productUrl": "https://toss.shopping/t/1497881307", "displayPrice": 5110, "originalPrice": 20900, "discountRate": 75, "isSoldOut": false, "reviewScore": 4.6, "reviewCount": 1977, "categoryIds": [22343, 24183, 24187, 24189], "affUrl": "https://toss.im/_m/1tJUSsr9"}, {"rank": 46, "tacaItemId": 2634967517, "displayName": "제주 하우스감귤, 특품, 대과, 5kg, 1박스", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-08-24/ef16857f-13d1-4b36-a629-952e513d1236.jpeg", "productUrl": "https://toss.shopping/t/2647103899", "displayPrice": 14900, "originalPrice": 59900, "discountRate": 75, "isSoldOut": false, "reviewScore": 4.1, "reviewCount": 873, "categoryIds": [50995, 27917, 28001, 28003, 28009], "affUrl": "https://toss.im/_m/3zxYc6lD"}, {"rank": 94, "tacaItemId": 2635743949, "displayName": "미라클 치료제, 30ml, 2개", "thumbnailUrl": "https://shopping.toss.im/live/temp/2026-08-25/7fa684d4-4a11-4797-b5d5-940cfdeae072.jpeg", "productUrl": "https://toss.shopping/t/2647881071", "displayPrice": 15900, "originalPrice": 63600, "discountRate": 75, "isSoldOut": false, "reviewScore": 4.0, "reviewCount": 112, "categoryIds": [50997, 21599, 21701, 21703, 21715], "affUrl": "https://toss.im/_m/5OCy7LFf"}, {"rank": 22, "tacaItemId": 2620517383, "displayName": "맘스럽 리얼 헹굼식초, 4L, 2개", "thumbnailUrl": "https://shopping.toss.im/3ff/live/product/834251053/3ffd2f2a-0e54-4d6f-92ba-79e259e224c4.jpg", "productUrl": "https://toss.shopping/t/2632648343", "displayPrice": 4130, "originalPrice": 15900, "discountRate": 74, "isSoldOut": false, "reviewScore": 5.0, "reviewCount": 1, "categoryIds": [22343, 23391, 23403, 23429, 23433], "affUrl": "https://toss.im/_m/dDaKiTzi"}, {"rank": 34, "tacaItemId": 2392139237, "displayName": "제주 순살갈치, 1kg, 2마리, 1팩", "thumbnailUrl": "https://shopping.toss.im/live/taca/ai/OGYyMWE3/Q0grQzJ0ZkkwdE9nUzk5QVQ1c2Y3QTI3Ky85c08vQ2taUVAvTUVQbTgvZz0.png", "productUrl": "https://toss.shopping/t/2404219687", "displayPrice": 8500, "originalPrice": 21500, "discountRate": 74, "isSoldOut": false, "reviewScore": 3.5, "reviewCount": 1683, "categoryIds": [50995, 27917, 28127, 28247, 28253], "affUrl": "https://toss.im/_m/Ta6pKXih"}];
+
+        function render(list) {
+            const container = document.getElementById('product-container');
+            container.innerHTML = '';
+            
+            list.forEach(it => {
+                const originPriceHtml = (it.originalPrice && it.originalPrice > it.displayPrice) 
+                    ? `<span class="original-price">${Number(it.originalPrice).toLocaleString()}원</span>` 
+                    : '';
+                
+                const card = document.createElement('a');
+                card.href = it.affUrl || it.productUrl || '#';
+                card.target = '_blank';
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="thumb-wrap">
+                        <img src="${it.thumbnailUrl || ''}" alt="${it.displayName}" loading="lazy">
+                        <span class="badge">🔥 ${it.discountRate || 0}% OFF</span>
+                    </div>
+                    <div class="info">
+                        <div class="title">${it.displayName}</div>
+                        <div class="price-row">
+                            ${originPriceHtml}
+                            <span class="sale-price">${Number(it.displayPrice || 0).toLocaleString()}원</span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
         }
+
+        function sortAndRender(type) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            let sorted = [...items];
+            if (type === 'discount') {
+                document.getElementById('btn-discount').classList.add('active');
+                sorted.sort((a, b) => (b.discountRate || 0) - (a.discountRate || 0));
+            } else {
+                document.getElementById('btn-price').classList.add('active');
+                sorted.sort((a, b) => (a.displayPrice || 999999999) - (b.displayPrice || 999999999));
+            }
+            render(sorted);
+        }
+
+        // 초기 로딩: 고할인율순
+        sortAndRender('discount');
     </script>
 </body>
 </html>
